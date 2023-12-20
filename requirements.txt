@@ -1,0 +1,3 @@
+xmen
+spacy[cuda113]
+https://github.com/explosion/spacy-models/releases/download/de_dep_news_trf-3.4.0/de_dep_news_trf-3.4.0-py3-none-any.whl
