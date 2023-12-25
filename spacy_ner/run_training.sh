@@ -1,10 +1,13 @@
 #!/bin/bash
 TIMESTAMP=`date +%Y-%m-%d_%H-%M-%S`
-cuda="$1"
 
-if [[ $# -ne 1 ]] ; then
-  echo 'Usage: run_traing.sh <cuda>'
+if [[ $# -ne 3 ]] ; then
+  echo 'Usage: run_training.sh <cuda> <data_path> <model>'
   exit 1
 fi
 
-python -m spacy project run train . --vars.gpu "$cuda" --vars.run_name "$TIMESTAMP-cuda-$cuda"
+cuda="$1"
+data_path="$2"
+model="$3"
+
+python -m spacy project run train . --vars.gpu "$cuda" --vars.run_name "$TIMESTAMP-cuda-$cuda" --vars.data_path "$data_path" --vars.model "$model"

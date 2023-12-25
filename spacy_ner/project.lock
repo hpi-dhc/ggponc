@@ -1,19 +1,19 @@
 train:
   cmd: python -m spacy run train
   script:
-    - python -m spacy train configs/spancat.cfg -o training/2022-03-24_19-13-34-cuda-5
-      --gpu-id 5 --training.logger.run_name 2022-03-24_19-13-34-cuda-5 --paths.train
-      ../data/annotations/spacy/train.spacy --paths.dev ../data/annotations/spacy/dev.spacy
-      --code snomed_spans.py
+    - python -m spacy train configs/spancat.cfg -o training/default --gpu-id 0 --training.logger.run_name
+      default --paths.train ../data/ggponc_spacy/train.spacy --paths.dev ../data/ggponc_spacy/validation.spacy
+      --code chunk_and_ngram_suggester.py --components.transformer_spancat.model.name
+      deepset/gbert-base
   deps:
-    - path: ../data/annotations/spacy/train.spacy
-      md5: 1be7137b36cf9d5a214ed475c6645729
-    - path: ../data/annotations/spacy/dev.spacy
-      md5: ebe8bf852bfee4ab0f10d81ed2e4d426
+    - path: ../data/ggponc_spacy/train.spacy
+      md5: e1949851a66be06caf5052692dc60e07
+    - path: ../data/ggponc_spacy/validation.spacy
+      md5: 8a3c3304a6f00f94e1b39bfcea3b626a
     - path: configs/spancat.cfg
-      md5: b2f6d62007710c619e5a055d2bd66103
+      md5: 2d1d93975c7d99583d079335b13eb392
   outs:
     - path: training/model-best
       md5: null
-  spacy_version: 3.2.3
-  spacy_git_version: 99425de36
+  spacy_version: 3.4.4
+  spacy_git_version: Unknown

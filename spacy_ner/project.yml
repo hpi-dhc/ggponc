@@ -5,9 +5,9 @@ spacy_version: ">=3.1.0,<4.0.0"
 vars:
   config: "spancat"  # "ner"
   gpu: -1 
-  lang: "de"
-  spans_key: "snomed"
-  data_path: "../data/v2.0_2022_03_24/annotations/spacy"
+  spans_key: "entities"
+  data_path: "../data/ggponc_spacy"
+  model: "deepset/gbert-base"
   run_name: "default"
 
 directories: ["training", "configs", "metrics"]
@@ -22,10 +22,10 @@ commands:
   - name: train
     help: "Train the pipeline"
     script:
-      - "python -m spacy train configs/${vars.config}.cfg -o training/${vars.run_name} --gpu-id ${vars.gpu} --training.logger.run_name ${vars.run_name} --paths.train ${vars.data_path}/train.spacy --paths.dev ${vars.data_path}/dev.spacy --code snomed_spans.py"
+      - "python -m spacy train configs/${vars.config}.cfg -o training/${vars.run_name} --gpu-id ${vars.gpu} --training.logger.run_name ${vars.run_name} --paths.base ${vars.data_path} --code chunk_and_ngram_suggester.py --components.transformer_spancat.model.name ${vars.model}"
     deps:
       - "${vars.data_path}/train.spacy"
-      - "${vars.data_path}/dev.spacy"
+      - "${vars.data_path}/validation.spacy"
       - "configs/${vars.config}.cfg"
     outputs:
       - "training/model-best"
