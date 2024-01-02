@@ -10,10 +10,16 @@ command:
   - ./configs/spancat.cfg
   - ./training
 parameters:
+  components.transformer_spancat.model.name:
+    value: deepset/gelectra-base
   training.optimizer.learn_rate.initial_rate:
-    distribution: uniform
+    distribution: log_uniform_values
     max: 0.0001
     min: 0.00001
+  training.optimizer.learn_rate.warmup_steps:
+    distribution: uniform
+    max: 1000
+    min: 0
   components.spancat.threshold:
     distribution: uniform
     max: 1.0
