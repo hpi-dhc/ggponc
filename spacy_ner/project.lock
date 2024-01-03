@@ -1,10 +1,10 @@
 train:
   cmd: python -m spacy run train
   script:
-    - python -m spacy train configs/spancat.cfg -o training/2023-12-30_15-15-32-cuda-4
-      --gpu-id 4 --training.logger.run_name 2023-12-30_15-15-32-cuda-4 --paths.base
+    - python -m spacy train configs/spancat.cfg -o training/2024-01-02_09-33-47-cuda-5
+      --gpu-id 5 --training.logger.run_name 2024-01-02_09-33-47-cuda-5 --paths.base
       ../data/ggponc_spacy_up --code chunk_and_ngram_suggester.py --components.transformer_spancat.model.name
-      deepset/gelectra-base
+      deepset/gbert-base
   deps:
     - path: ../data/ggponc_spacy_up/train.spacy
       md5: bd4d76171a9a3a1ee8588aa8baf19dab
