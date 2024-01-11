@@ -10,7 +10,6 @@ see also:
 | https://github.com/hpi-dhc/ggponc_preprocessing | Pre-Processing Pipeline (Tokenization, POS Tagging) and GGPONC 1.0 Results |
 | https://github.com/hpi-dhc/ggponc_ellipses | Resolving Elliptical Compounds in German Medical Text |
 | https://github.com/hpi-dhc/ggponc_molecular | GGTWEAK - Gene Tagging with Weak Supervision for German Clinical Text |
-| https://github.com/hpi-dhc/xmen/blob/main/examples/03_GGPONC_NER.ipynb | GGPONC Entities + UMLS Grounding with xMEN |
 
 # Preparation
 
@@ -39,7 +38,7 @@ huggingface-cli download phlobo/de_ggponc_medbertde de_ggponc_medbertde-any-py3-
 pip install -q de_ggponc_medbertde-any-py3-none-any.whl
 ```
 
-see: [GGPONC_Nested_NER](GGPONC_Nested_NER.ipynb)
+See: [GGPONC_Nested_NER](GGPONC_Nested_NER.ipynb)
 
 ## Flat NER
 
@@ -47,7 +46,9 @@ TODO:
 
 # Grounding
 
-TODO
+We use the [xMEN](https://github.com/hpi-dhc/xmen/) toolkit with a pre-trained re-ranker to normalized identified entity mentions to UMLS Codes.
+
+See: [GGPONC_UMLS_Linking](GGPONC_UMLS_Linking.ipynb)
 
 # Stylometric Analysis
 
