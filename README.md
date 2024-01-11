@@ -32,7 +32,14 @@ dataset = load_dataset('bigbio/ggponc2', data_dir='data/v2.0_2022_03_24', name='
 
 ## Nested NER
 
-see notebook: [GGPONC_Nested_NER](GGPONC_Nested_NER.ipynb)
+A trained spaCy model for nested NER is available on Hugging Face: https://huggingface.co/phlobo/de_ggponc_medbertde
+
+````
+huggingface-cli download phlobo/de_ggponc_medbertde de_ggponc_medbertde-any-py3-none-any.whl --local-dir .
+pip install -q de_ggponc_medbertde-any-py3-none-any.whl
+```
+
+see: [GGPONC_Nested_NER](GGPONC_Nested_NER.ipynb)
 
 ## Flat NER
 

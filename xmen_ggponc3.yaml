@@ -1,0 +1,36 @@
+name: ggponc3
+
+cache_dir: ${oc.env:HOME}/.cache/xmen/
+
+dict:
+    umls:
+        lang: 
+          - de
+          - en
+        meta_path: ${oc.env:UMLS_HOME}/2023AA/META
+        semantic_group_file_version: v03
+        semantic_groups:
+          - ANAT
+          - CHEM
+          - CONC
+          - DEVI
+          - DISO
+          - GEOG
+          - LIVB
+          - OBJC
+          - PHEN
+          - PHYS
+          - PROC
+        sabs:
+          - SNOMEDCT_US 
+          - MSH
+          - MSHGER
+          - MDR
+          - MDRGER
+          - NCI
+
+linker:
+    candidate_generation:
+        index_base_path: ${cache_dir}/${name}/index
+        k_ngram: 100
+        k_sapbert: 100
