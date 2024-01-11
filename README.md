@@ -6,10 +6,10 @@ see also:
 
 | Repository | Description |
 | ---- | ---- |
-| https://github.com/hpi-dhc/ggponc_annotation | GGPONC 2.0 Results and Gold Standard Annotations |
-| https://github.com/hpi-dhc/ggponc_preprocessing | Pre-Processing Pipeline (Tokenization, POS Tagging) and GGPONC 1.0 Results |
-| https://github.com/hpi-dhc/ggponc_ellipses | Resolving Elliptical Compounds in German Medical Text |
-| https://github.com/hpi-dhc/ggponc_molecular | GGTWEAK - Gene Tagging with Weak Supervision for German Clinical Text |
+| [ggponc_annotation](https://github.com/hpi-dhc/ggponc_annotation) | GGPONC 2.0 Results and Gold Standard Annotations |
+| [ggponc_preprocessing](https://github.com/hpi-dhc/ggponc_preprocessing) | Pre-Processing Pipeline (Tokenization, POS Tagging) and GGPONC 1.0 Results |
+| [ggponc_ellipses](https://github.com/hpi-dhc/ggponc_ellipses) | Resolving Elliptical Compounds in German Medical Text |
+| [ggponc_molecular](https://github.com/hpi-dhc/ggponc_molecular) | GGTWEAK - Gene Tagging with Weak Supervision for German Clinical Text |
 
 # Preparation
 
