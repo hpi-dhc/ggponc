@@ -38,17 +38,21 @@ huggingface-cli download phlobo/de_ggponc_medbertde de_ggponc_medbertde-any-py3-
 pip install -q de_ggponc_medbertde-any-py3-none-any.whl
 ```
 
-See: [GGPONC_Nested_NER](GGPONC_Nested_NER.ipynb)
+See: [01_GGPONC_Nested_NER](01_GGPONC_Nested_NER.ipynb)
+
+### Evaluation
+
+See: [02_GGPONC_NER_Eval](02_GGPONC_NER_Eval.ipynb)
 
 ## Flat NER
 
-TODO:
+TODO: wait for JSynCC loader
 
 # Grounding
 
 We use the [xMEN](https://github.com/hpi-dhc/xmen/) toolkit with a pre-trained re-ranker to normalized identified entity mentions to UMLS Codes.
 
-See: [GGPONC_UMLS_Linking](GGPONC_UMLS_Linking.ipynb)
+See: [02_GGPONC_UMLS_Linking](02_GGPONC_UMLS_Linking.ipynb)
 
 # Stylometric Analysis
 
