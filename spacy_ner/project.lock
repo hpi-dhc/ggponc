@@ -1,17 +1,17 @@
 train:
   cmd: python -m spacy run train
   script:
-    - python -m spacy train configs/spancat.cfg -o training/2024-01-02_09-33-47-cuda-5
-      --gpu-id 5 --training.logger.run_name 2024-01-02_09-33-47-cuda-5 --paths.base
-      ../data/ggponc_spacy_up --code chunk_and_ngram_suggester.py --components.transformer_spancat.model.name
-      deepset/gbert-base
+    - python -m spacy train configs/spancat.cfg -o training/2024-01-30_16-40-45-cuda-3
+      --gpu-id 3 --training.logger.run_name 2024-01-30_16-40-45-cuda-3 --paths.base
+      ../data/ggponc2_fine_short_bigbio_kb/ggponc_spacy_up --code chunk_and_ngram_suggester.py
+      --components.transformer_spancat.model.name uklfr/gottbert-base
   deps:
-    - path: ../data/ggponc_spacy_up/train.spacy
-      md5: bd4d76171a9a3a1ee8588aa8baf19dab
-    - path: ../data/ggponc_spacy_up/validation.spacy
-      md5: 8a3c3304a6f00f94e1b39bfcea3b626a
+    - path: ../data/ggponc2_fine_short_bigbio_kb/ggponc_spacy_up/train.spacy
+      md5: 50ac9b90ebe827f0bc3f74ddfa18158c
+    - path: ../data/ggponc2_fine_short_bigbio_kb/ggponc_spacy_up/validation.spacy
+      md5: 99a8dc0a1860ae7b1f5e3fcdc96e892d
     - path: configs/spancat.cfg
-      md5: a635a09c18645e35254f9af2bd72fe34
+      md5: 6cef015bc5e2d9aed16732c31e19838c
   outs:
     - path: training/model-best
       md5: null
