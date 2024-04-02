@@ -1,0 +1,8 @@
+name: german_umls
+
+dict:
+    umls:
+        lang: 
+          - de
+        meta_path: ${oc.env:UMLS_HOME}/2023AA/META
+        semantic_group_file_version: v03

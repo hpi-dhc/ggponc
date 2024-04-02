@@ -2,6 +2,14 @@ name: ggponc3
 
 cache_dir: ${oc.env:HOME}/.cache/xmen/
 
+data_version: v2.1_2023_03_30 
+
+eccnp: 
+    model_path: data/ellipses_2023_01_30/model
+    batch_size: 32
+    generation_max_length: 277
+    tokenizer: "google/mt5-base"
+
 dict:
     umls:
         lang: 
@@ -30,7 +38,14 @@ dict:
           - NCI
 
 linker:
+    ranking:
+        kb_path: ${cache_dir}/${name}/${name}.jsonl
+        st_mapping_file: ggponc2tui.csv
+        reranker: phlobo/xmen-de-ce-medmentions
+        use_nil: False
+        k_reranking: 16
     candidate_generation:
         index_base_path: ${cache_dir}/${name}/index
         k_ngram: 100
         k_sapbert: 100
+    
