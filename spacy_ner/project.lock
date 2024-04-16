@@ -1,19 +1,17 @@
 train:
-  cmd: python -m spacy run train
+  cmd: python -m weasel run train
   script:
-    - python -m spacy train configs/spancat.cfg -o training/2024-01-30_16-40-45-cuda-3
-      --gpu-id 3 --training.logger.run_name 2024-01-30_16-40-45-cuda-3 --paths.base
-      ../data/ggponc2_fine_short_bigbio_kb/ggponc_spacy_up --code chunk_and_ngram_suggester.py
-      --components.transformer_spancat.model.name uklfr/gottbert-base
+    - python -m spacy train configs/spancat_molecular.cfg -o training/2024-04-03_21-41-57-cuda-1
+      --gpu-id 1 --training.logger.run_name 2024-04-03_21-41-57-cuda-1 --paths.base
+      ../data/molecular_2024_04_03 --code chunk_and_ngram_suggester.py --components.transformer_spancat.model.name
+      deepset/gbert-base
   deps:
-    - path: ../data/ggponc2_fine_short_bigbio_kb/ggponc_spacy_up/train.spacy
-      md5: 50ac9b90ebe827f0bc3f74ddfa18158c
-    - path: ../data/ggponc2_fine_short_bigbio_kb/ggponc_spacy_up/validation.spacy
-      md5: 99a8dc0a1860ae7b1f5e3fcdc96e892d
-    - path: configs/spancat.cfg
-      md5: 6cef015bc5e2d9aed16732c31e19838c
+    - path: ../data/molecular_2024_04_03/train.spacy
+      md5: 4ed5e337f0f705c52e50cd510e1798ea
+    - path: ../data/molecular_2024_04_03/validation.spacy
+      md5: d44fd031b7063d630ba4deadb21ffef8
+    - path: configs/spancat_molecular.cfg
+      md5: ec9066c1a5a75fdd6837ae517b9ba42c
   outs:
     - path: training/model-best
       md5: null
-  spacy_version: 3.4.4
-  spacy_git_version: Unknown
