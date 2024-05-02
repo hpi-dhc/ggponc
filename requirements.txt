@@ -4,3 +4,4 @@ https://github.com/explosion/spacy-models/releases/download/de_dep_news_trf-3.4.
 matplotlib
 datasets
 wandb
+matplotlib_venn
