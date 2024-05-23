@@ -8,7 +8,7 @@ It covers:
 - [(Nested) Clinical Named Entity Recogition](#clinical-named-entity-recognition)
 - [UMLS Entity Linking with xMEN](#umls-entity-linking-with-xmen)
 - [Resolution of Coordination Ellipses](#resolution-of-coordination-ellipses)
-- [Molecular Named Entities (Genes, Variants)](#molecular-named-entities)
+- [Molecular Named Entities (Genes / Proteins, Variants)](#molecular-named-entities)
 
 see also:
 
@@ -67,6 +67,6 @@ See: [03_ECCNP_Analysis.ipynb](03_ECCNP_Analysis.ipynb)
 
 ## Molecular Named Entities
 
-Training and evaluation of a nested NER model for gene and variant mentions. The dataset (`molecular_2024_04_03`) is not yet described in a publication, but available upon request. Place the release in `data` to run the notebook.
+Training and evaluation of a nested NER model for gene / protein and variant mentions. The dataset (`molecular_2024_04_03`) is not yet published, but available upon request. Place the release in `data` to run the notebook.
 
 See: [04_Molecular.ipynb](04_Molecular.ipynb)
