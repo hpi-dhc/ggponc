@@ -53,13 +53,13 @@ Training and evaluation of the (flat) NER models described in [Borchert et al. (
 
 ## UMLS Entity Linking with xMEN
 
-We use the [xMEN](https://github.com/hpi-dhc/xmen/) toolkit with a pre-trained re-ranker to normalized identified entity mentions to UMLS codes.
+We use the [xMEN](https://github.com/hpi-dhc/xmen/) toolkit with a pre-trained re-ranker to normalize identified entity mention spans to UMLS codes.
 
 See: [02_GGPONC_UMLS_Linking](02_GGPONC_UMLS_Linking.ipynb)
 
 ## Resolution of Coordination Ellipses
 
-Application of our encoder-decoder model for resolving elliptical coordinated compound nound phrases (ECCNPs), e.g. `Chemo- und Strahlentherapie` -> `Chemotherapie und Strahlentherapie`
+Application of our encoder-decoder model for resolving elliptical coordinated compound noun phrases (ECCNPs), e.g. `Chemo- und Strahlentherapie` -> `Chemotherapie und Strahlentherapie`
 
 To load the model, put the contents of `ellipses_2023_01_30` from the GGPONC releases into the data folder.
 
