@@ -6,7 +6,7 @@ This repository collects resources related to [GGPONC](https://www.leitlinienpro
 
 It covers:
 - [(Nested) Clinical Named Entity Recogition)](#clinical-named-entity-recognition)
-- [UMLS Entity Linking with xMEN](#umls-entity-linking)
+- [UMLS Entity Linking with xMEN](#umls-entity-linking-with-xmen)
 - [Resolution of Coordination Ellipses](#resolution-of-coordination-ellipses)
 - [Molecular Named Entities (Genes, Variants)](#molecular-named-entities)
 
