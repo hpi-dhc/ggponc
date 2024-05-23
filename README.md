@@ -2,6 +2,14 @@
 
 ![GGPONC Annotations in INCepTION](assets/annotation.png)
 
+This repository collects resources related to [GGPONC](https://www.leitlinienprogramm-onkologie.de/projekte/ggponc-english/).
+
+It covers:
+- [(Nested) Clinical Named Entity Recogition)](#clinical-named-entity-recognition)
+- [UMLS Entity Linking with xMEN](#umls-entity-linking)
+- [Resolution of Coordination Ellipses](#resolution-of-coordination-ellipses)
+- [Molecular Named Entities (Genes, Variants)](#molecular-named-entities)
+
 see also:
 
 | Repository | Description |
@@ -13,10 +21,12 @@ see also:
 
 # Preparation
 
-1. Get access to GGPONC following the instructions on the [project homepage](https://www.leitlinienprogramm-onkologie.de/projekte/ggponc-english/) and place the the contents of the 2.0 and 3.0 releases (`v2.0_2022_03_24` and `v3.0_2023_01_23`) in the `data` folder
+1. Get access to GGPONC following the instructions on the [project homepage](https://www.leitlinienprogramm-onkologie.de/projekte/ggponc-english/) and place the contents of the 2.0 release (`v2.0_2022_03_24` and `v2.0_agreement`) in the `data` folder
 2. Install Python dependencies `pip install -r requirements.txt` `
 
-# Named Entity Recognition
+# Clinical Named Entity Recognition
+
+See: [01_GGPONC_Nested_NER](01_GGPONC_Nested_NER.ipynb)
 
 ## Data Loading
 
@@ -26,10 +36,9 @@ A BigBIO-compatible data loader for loading the latest gold-standard annotations
 
 from datasets import load_dataset
 dataset = load_dataset('bigbio/ggponc2', data_dir='data/v2.0_2022_03_24', name='ggponc2_fine_long_bigbio_kb')
-
 ```
 
-## Nested NER
+## Nested NER with spaCy Spancat
 
 A trained spaCy model for nested NER is available on Hugging Face: https://huggingface.co/phlobo/de_ggponc_medbertde
 
@@ -38,22 +47,26 @@ huggingface-cli download phlobo/de_ggponc_medbertde de_ggponc_medbertde-any-py3-
 pip install -q de_ggponc_medbertde-any-py3-none-any.whl
 ```
 
-See: [01_GGPONC_Nested_NER](01_GGPONC_Nested_NER.ipynb)
-
-### Evaluation
-
-See: [02_GGPONC_NER_Eval](02_GGPONC_NER_Eval.ipynb)
-
 ## Flat NER
 
-TODO: wait for JSynCC loader
+Training and evaluation of the (flat) NER models described in [Borchert et al. (2022)](https://aclanthology.org/2022.lrec-1.389/) is covered in the [GGPONC 2.0 repository](https://github.com/hpi-dhc/ggponc_annotation/blob/master/notebooks/02_NER_Baselines.ipynb).
 
-# Grounding
-
-We use the [xMEN](https://github.com/hpi-dhc/xmen/) toolkit with a pre-trained re-ranker to normalized identified entity mentions to UMLS Codes.
+# UMLS Entity Linking with xMEN
 
 See: [02_GGPONC_UMLS_Linking](02_GGPONC_UMLS_Linking.ipynb)
 
-# Stylometric Analysis
+We use the [xMEN](https://github.com/hpi-dhc/xmen/) toolkit with a pre-trained re-ranker to normalized identified entity mentions to UMLS Codes.
 
-TODO
+# Resolution of Coordination Ellipses
+
+See: [03_ECCNP_Analysis.ipynb](03_ECCNP_Analysis.ipynb)
+
+Application of our encoder-decoder model for resolving elliptical coordinated compound nound phrases (ECCNPs), e.g. `Chemo- und Strahlentherapie` -> `Chemotherapie und Strahlentherapie`
+
+To load the model, put the contents of `ellipses_2023_01_30` from the GGPONC releases into the data folder.
+
+# Molecular Named Entities
+
+See: [04_Molecular.ipynb](04_Molecular.ipynb)
+
+Training and evaluation of a nested NER model for gene and variant mentions. The dataset (`molecular_2024_04_03`) is not yet described in a publication paper, but available upon request. Place the release in `data` to run the notebook.

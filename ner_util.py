@@ -1,7 +1,7 @@
 from pathlib import Path
 from spacy.tokens import Doc, DocBin
 from datasets import Dataset, DatasetDict
-from typing import List
+from typing import List, Union
 from tqdm.auto import tqdm
 
 def bigbio_split_passages(bigbio_dataset : Dataset) -> Dataset:
@@ -58,7 +58,7 @@ def bigbio_to_spacy(nlp, bigbio_dataset : Dataset, span_key : str, is_sentencize
         result.append(doc)
     return result
 
-def bigbio_to_spacy_docbin(folder : str | Path, nlp, bigbio_dataset : DatasetDict, span_key : str, is_sentencized : bool = False):
+def bigbio_to_spacy_docbin(folder : Union[str, Path], nlp, bigbio_dataset : DatasetDict, span_key : str, is_sentencized : bool = False):
     out = Path(folder)
     out.mkdir(exist_ok=True)
     for split, dataset in bigbio_dataset.items():

@@ -18,9 +18,9 @@ from xmen.data import AbbreviationExpander, SemanticTypeFilter, filter_and_apply
 from xmen.linkers import default_ensemble
 from xmen.reranking import CrossEncoderReranker
 
-def read_sentences(version):
+def read_sentences(version, folder='output'):
     res = []
-    for f in tqdm(list(sorted(Path(f'output/{version}/plain_text/sentences/all_files_sentences/').glob('*.txt')))):
+    for f in tqdm(list(sorted(Path(f'{folder}/{version}/plain_text/sentences/all_files_sentences/').glob('*.txt')))):
         with open(f, 'r', encoding='utf-8') as fh:
             for si, l in enumerate(fh.readlines()):
                 l = l.rstrip()

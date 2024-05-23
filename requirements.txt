@@ -1,5 +1,9 @@
-xmen
+xmen==1.0.7
+spacy==3.4.4
 beautifulsoup4
 https://github.com/explosion/spacy-models/releases/download/de_dep_news_trf-3.4.0/de_dep_news_trf-3.4.0-py3-none-any.whl
+https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/v0.5.1/en_core_sci_sm-0.5.1.tar.gz
 matplotlib
 datasets
+ipywidgets
+wandb

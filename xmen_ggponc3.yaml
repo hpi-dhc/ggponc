@@ -2,7 +2,7 @@ name: ggponc3
 
 cache_dir: ${oc.env:HOME}/.cache/xmen/
 
-data_version: v2.1_2023_03_30 
+data_version: v2.0_agreement 
 
 eccnp: 
     model_path: data/ellipses_2023_01_30/model
