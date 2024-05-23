@@ -7,3 +7,4 @@ matplotlib
 datasets
 ipywidgets
 wandb
+matplotlib_venn
