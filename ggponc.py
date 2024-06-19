@@ -1,6 +1,8 @@
 from pathlib import Path
 from typing import List, Tuple, Any, Union
 from itertools import groupby
+from zipfile import ZipFile
+import io
 
 from tqdm.auto import tqdm
 import pandas as pd
@@ -18,14 +20,20 @@ from xmen.data import AbbreviationExpander, SemanticTypeFilter, filter_and_apply
 from xmen.linkers import default_ensemble
 from xmen.reranking import CrossEncoderReranker
 
-def read_sentences(version, folder='output'):
+def read_sentences(base_path, zipped=True):    
+    sentence_folder = 'sentences/all_files_sentences/'
     res = []
-    for f in tqdm(list(sorted(Path(f'{folder}/{version}/plain_text/sentences/all_files_sentences/').glob('*.txt')))):
-        with open(f, 'r', encoding='utf-8') as fh:
-            for si, l in enumerate(fh.readlines()):
+    if zipped:
+        archive = ZipFile(f'{base_path}/plain_text/plain_text.zip', 'r')        
+        files = sorted([n for n in archive.namelist() if n.startswith(sentence_folder) and n.endswith('.txt')])
+    else:
+        files = list(sorted((Path(f'{base_path}/plain_text') / sentence_folder).glob('*.txt')))
+    for f in tqdm(files):
+        with (archive.open(f) if zipped else open(f, 'rb')) as fh:
+            for si, l in enumerate(io.TextIOWrapper(fh, 'utf-8')):
                 l = l.rstrip()
                 if l:
-                    res.append({'file' : f.stem, 'sentence_id': si, 'sentence' : l})
+                    res.append({'file' : Path(f).stem, 'sentence_id': si, 'sentence' : l})
     return pd.DataFrame(res)
 
 def merge_sentence_docs(sentence_docs : List[Doc], group_key : List[Any], key_name='file_name'):
