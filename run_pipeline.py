@@ -9,7 +9,9 @@ from xmen.data import from_spacy
 
 from nen_util import get_annotation_dataframe
 
-logging.basicConfig(level=logging.INFO)
+FORMAT = '%(asctime)s - %(levelname)s - %(message)s'
+logging.basicConfig(level=logging.INFO, format=FORMAT)
+
 logger = logging.getLogger(__name__)
 
 def main():
@@ -36,7 +38,7 @@ def main():
     output_path.mkdir(parents=True, exist_ok=True)
   
     sent_df = read_sentences(args.input, zipped=not args.unzipped)
-    logger.info("Read %d sentences", len(sent_df))
+    logger.info(f"Read {len(sent_df)} sentences")
 
     logger.info("Resolving ECCNPs")
     resolver = ECCNPResolver(**conf.eccnp)
@@ -47,7 +49,7 @@ def main():
     # Drop excessively long pre-processed sentences, most like generation errors
     sent_df['ratio'] = (sent_df.sentence_preprocessed.str.len() / sent_df.sentence.str.len()).sort_values()
     drop_index = sent_df.ratio > 2
-    logger.info('Resetting', drop_index.sum(), '/', len(drop_index), 'docs due to likely generation errors')
+    logger.info(f'Resetting {drop_index.sum()} / {len(drop_index)} docs due to likely generation errors')
     sent_df.loc[sent_df.ratio > 2, 'sentence_preprocessed'] = sent_df.sentence
 
     logger.info("Running NER")
