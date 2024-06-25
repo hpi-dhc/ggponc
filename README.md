@@ -21,7 +21,9 @@ see also:
 
 ## Preparation
 
-1. Get access to GGPONC following the instructions on the [project homepage](https://www.leitlinienprogramm-onkologie.de/projekte/ggponc-english/) and place the contents of the 2.0 release (`v2.0_2022_03_24` and `v2.0_agreement`) in the `data` folder
+1. Get access to GGPONC following the instructions on the [project homepage](https://www.leitlinienprogramm-onkologie.de/projekte/ggponc-english/) and place the contents of the 2.0 release in the `data` folder:
+    - https://zenodo.org/records/12518458 as `v2.0_2022_03_24` 
+    - https://zenodo.org/records/12530242 as `v2.0_agreement`
 2. Install Python dependencies `pip install -r requirements.txt` `
 
 ## Clinical Named Entity Recognition
@@ -60,8 +62,6 @@ See: [02_GGPONC_UMLS_Linking](02_GGPONC_UMLS_Linking.ipynb)
 ## Resolution of Coordination Ellipses
 
 Application of our encoder-decoder model for resolving elliptical coordinated compound noun phrases (ECCNPs), e.g. `Chemo- und Strahlentherapie` -> `Chemotherapie und Strahlentherapie`
-
-To load the model, put the contents of `ellipses_2023_01_30` from the GGPONC releases into the data folder.
 
 See: [03_ECCNP_Analysis.ipynb](03_ECCNP_Analysis.ipynb)
 
